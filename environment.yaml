@@ -1,0 +1,21 @@
+channels:
+  - bioconda
+  - r
+  - defaults
+  - conda-forge
+dependencies:
+  - docopt
+  - r-essentials
+  - r-devtools
+  - r-docopt
+  - r-stringr
+  - r-tidyverse
+  - r-doparallel
+  - r-matlab
+  - r-rstan
+  - r-tsne 
+  - r-purrr
+  - snakemake
+  - bioconductor-biocinstaller
+  - bioconductor-variantannotation
+  - bioconductor-signer
