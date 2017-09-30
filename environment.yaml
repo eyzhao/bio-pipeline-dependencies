@@ -15,7 +15,7 @@ dependencies:
   - r-doparallel
   - r-matlab
   - r-rstan
-  - r-tsne 
+  - r-rtsne 
   - r-purrr
   - lapack
   - snakemake
