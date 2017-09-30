@@ -1,3 +1,4 @@
+jags_lib := /gsc/software/linux-x86_64-centos6/JAGS-4.3.0/lib
 makefile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
 makefile_dir := $(patsubst %/,%, $(dir $(makefile_path)))
 current_dir := $(notdir $(patsubst %/,%,$(dir $(mkfile_path))))
@@ -30,6 +31,7 @@ r_packages: miniconda3/envs/dependencies packages/hrdtools/DESCRIPTION
 	source $(activate_path) dependencies && \
 		echo 'Installing R packages into this R install:' `which R` && \
 		export R_LIBS=$(r_libs) && \
+		export LD_LIBRARY_PATH=$$LD_LIBRARY_PATH:$(jags_lib)
 		$(rscript_path) r_dependencies.R && \
 		source $(deactivate_path) && \
 		echo 'installed packages' > r_packages

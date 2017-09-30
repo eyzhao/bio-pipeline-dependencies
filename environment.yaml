@@ -3,7 +3,9 @@ channels:
   - r
   - defaults
   - conda-forge
+  - anaconda
 dependencies:
+  - gcc
   - docopt
   - r-essentials
   - r-devtools
@@ -15,6 +17,7 @@ dependencies:
   - r-rstan
   - r-tsne 
   - r-purrr
+  - lapack
   - snakemake
   - bioconductor-biocinstaller
   - bioconductor-variantannotation
