@@ -8,8 +8,12 @@ deactivate_path := $(makefile_dir)/miniconda3/bin/deactivate
 rscript_path := $(makefile_dir)/miniconda3/envs/dependencies/bin/Rscript
 snakemake_path := $(makefile_dir)/miniconda3/envs/dependencies/bin/snakemake
 r_libs := $(makefile_dir)/miniconda3/envs/dependencies/lib/R/library
+env_dir := $(makefile_dir)/miniconda3/envs/dependencies
 
-all: miniconda3/bin/conda miniconda3/envs/dependencies r_packages
+all: miniconda3/bin/conda \
+	miniconda3/envs/dependencies \
+	r_packages \
+	miniconda3/envs/dependencies/etc/conda/activate.d/env_vars.sh
 
 Miniconda3-latest-Linux-x86_64.sh:
 	wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
@@ -21,7 +25,8 @@ miniconda3/envs/dependencies: environment.yaml miniconda3/bin/conda
 	$(conda_path) env create --name dependencies --file $<
 
 conda_update: environment.yaml
-	conda env update -f=$< && echo 'done' > conda_update
+	source $(activate_path) dependencies && \
+		conda env update -f=$< && echo 'done' > conda_update
 
 packages/hrdtools/DESCRIPTION:
 	mkdir -p packages/hrdtools && \
@@ -35,3 +40,6 @@ r_packages: miniconda3/envs/dependencies packages/hrdtools/DESCRIPTION
 		$(rscript_path) r_dependencies.R && \
 		source $(deactivate_path) && \
 		echo 'installed packages' > r_packages
+
+miniconda3/envs/dependencies/etc/conda/activate.d/env_vars.sh: miniconda3/envs/dependencies
+	echo "export R_LIBS=$(r_libs) && export LD_LIBRARY_PATH=$$LD_LIBRARY_PATH:$(jags_lib)" > $@

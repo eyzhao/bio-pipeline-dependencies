@@ -38,8 +38,10 @@ cran_package('nnls')
 cran_package('dbscan')
 cran_package('cowplot')
 cran_package('deconstructSigs')
+cran_package('mutSignatures')
 cran_package('cancerTiming')
 cran_package('rjags')
+cran_package('coda')
 
 custom_package('hrdtools', 'packages/hrdtools')
 

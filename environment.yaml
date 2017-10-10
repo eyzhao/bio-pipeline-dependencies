@@ -9,6 +9,7 @@ dependencies:
   - docopt
   - r-essentials
   - r-devtools
+  - r-roxygen2
   - r-docopt
   - r-stringr
   - r-tidyverse
@@ -17,8 +18,13 @@ dependencies:
   - r-rstan
   - r-rtsne 
   - r-purrr
+  - cairo
+  - r-cairo
+  - svn
   - lapack
   - snakemake
   - bioconductor-biocinstaller
   - bioconductor-variantannotation
   - bioconductor-signer
+  - bioconductor-rbgl
+  - bioconductor-pcamethods
