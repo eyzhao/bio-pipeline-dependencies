@@ -21,7 +21,6 @@ dependencies:
   - cairo
   - r-cairo
   - svn
-  - lapack
   - snakemake
   - bioconductor-biocinstaller
   - bioconductor-variantannotation
