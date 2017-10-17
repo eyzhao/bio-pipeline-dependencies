@@ -1,21 +1,27 @@
+name: dependencies
 channels:
-  - bioconda
-  - defaults
-  - anaconda
+- bioconda
+- conda-forge
+- r
+- defaults
 dependencies:
-  - gcc
-  - docopt
-  - r-essentials
-  - r-devtools
-  - r-roxygen2
-  - r-docopt
-  - r-stringr
-  - r-tidyverse
-  - r-doparallel
-  - r-rtsne 
-  - r-purrr
-  - svn
-  - lapack
-  - snakemake
-  - bioconductor-biocinstaller
-  - bioconductor-variantannotation
+- vcftools
+- bioconductor-signer
+- bioconductor-variantannotation
+- snakemake
+- r-docopt
+- r-matlab
+- r-rtsne
+- docopt
+- gcc
+- glib
+- gmp
+- r-base
+- r-essentials
+- r-devtools
+- r-doparallel
+- r-tidyverse
+- r-knitr
+- r-plyr
+- r-roxygen2
+- r-stringr

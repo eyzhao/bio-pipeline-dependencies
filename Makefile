@@ -12,8 +12,8 @@ env_dir := $(makefile_dir)/miniconda3/envs/dependencies
 
 all: miniconda3/bin/conda \
 	miniconda3/envs/dependencies \
-	r_packages \
-	miniconda3/envs/dependencies/etc/conda/activate.d/env_vars.sh
+	miniconda3/envs/dependencies/etc/conda/activate.d/env_vars.sh \
+	r_packages
 
 Miniconda3-latest-Linux-x86_64.sh:
 	wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
@@ -41,5 +41,5 @@ r_packages: miniconda3/envs/dependencies packages/hrdtools/DESCRIPTION
 		source $(deactivate_path) && \
 		echo 'installed packages' > r_packages
 
-miniconda3/envs/dependencies/etc/conda/activate.d/env_vars.sh: miniconda3/envs/dependencies
-	echo "export R_LIBS=$(r_libs) && export LD_LIBRARY_PATH=$$LD_LIBRARY_PATH:$(jags_lib)" > $@
+miniconda3/envs/dependencies/etc/conda/activate.d/env_vars.sh:
+	echo "export R_LIBS=$(r_libs) && export LD_LIBRARY_PATH=\$$LD_LIBRARY_PATH:$(jags_lib)" > $@
