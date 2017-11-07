@@ -42,4 +42,4 @@ r_packages: miniconda3/envs/dependencies packages/hrdtools/DESCRIPTION
 		echo 'installed packages' > r_packages
 
 miniconda3/envs/dependencies/etc/conda/activate.d/env_vars.sh: miniconda3/envs/dependencies
-	echo "export R_LIBS=$(r_libs) && export LD_LIBRARY_PATH=$$LD_LIBRARY_PATH:$(jags_lib)" > $@
+	echo "export R_LIBS=$(r_libs)" > $@

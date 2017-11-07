@@ -18,6 +18,7 @@ dependencies:
   - r-rstan
   - r-rtsne 
   - r-purrr
+  - jags
   - cairo
   - r-cairo
   - svn
@@ -28,3 +29,4 @@ dependencies:
   - bioconductor-signer
   - bioconductor-rbgl
   - bioconductor-pcamethods
+  - vcftools
