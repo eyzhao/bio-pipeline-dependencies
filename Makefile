@@ -1,4 +1,3 @@
-jags_lib := /gsc/software/linux-x86_64-centos6/JAGS-4.3.0/lib
 makefile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
 makefile_dir := $(patsubst %/,%, $(dir $(makefile_path)))
 current_dir := $(notdir $(patsubst %/,%,$(dir $(mkfile_path))))
@@ -7,6 +6,7 @@ activate_path := $(makefile_dir)/miniconda3/bin/activate
 deactivate_path := $(makefile_dir)/miniconda3/bin/deactivate
 rscript_path := $(makefile_dir)/miniconda3/envs/dependencies/bin/Rscript
 snakemake_path := $(makefile_dir)/miniconda3/envs/dependencies/bin/snakemake
+conda_libs := $(makefile_dir)/miniconda3/envs/dependencies/lib
 r_libs := $(makefile_dir)/miniconda3/envs/dependencies/lib/R/library
 env_dir := $(makefile_dir)/miniconda3/envs/dependencies
 
@@ -36,10 +36,10 @@ r_packages: miniconda3/envs/dependencies packages/hrdtools/DESCRIPTION
 	source $(activate_path) dependencies && \
 		echo 'Installing R packages into this R install:' `which R` && \
 		export R_LIBS=$(r_libs) && \
-		export LD_LIBRARY_PATH=$$LD_LIBRARY_PATH:$(jags_lib)
+		export LD_LIBRARY_PATH=$(conda_libs) && \
 		$(rscript_path) r_dependencies.R && \
 		source $(deactivate_path) && \
 		echo 'installed packages' > r_packages
 
 miniconda3/envs/dependencies/etc/conda/activate.d/env_vars.sh: miniconda3/envs/dependencies
-	echo "export R_LIBS=$(r_libs)" > $@
+	mkdir -p miniconda3/envs/dependencies/etc/conda/activate.d && echo "export R_LIBS=$(r_libs)" > $@

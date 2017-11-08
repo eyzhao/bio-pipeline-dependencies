@@ -30,7 +30,6 @@ custom_package <- function(pkgname, pkgpath) {
     }
 }
 
-bioc_package('SomaticSignatures')
 bioc_package('copynumber')
 bioc_package('signeR')
 
