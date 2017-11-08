@@ -20,6 +20,13 @@ dependencies:
   - r::r-devtools
   - r::r-roxygen2
   - r::r-stringr
+  - r::r-rcpp=0.12.10
+  - conda-forge::r-readr=1.1.0
+  - conda-forge::r-purrr=0.2.2
+  - conda-forge::r-broom=0.4.2
+  - conda-forge::r-tidyr=0.6.1
+  - conda-forge::r-dplyr=0.7.0
+  - conda-forge::r-ggplot2=2.2.0
   - r::r-tidyverse
   - r::r-doparallel
   - r::r-rstan
