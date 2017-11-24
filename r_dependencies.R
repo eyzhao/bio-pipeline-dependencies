@@ -41,6 +41,7 @@ cran_package('mutSignatures')
 cran_package('cancerTiming')
 cran_package('rjags')
 cran_package('coda')
+cran_package('R.matlab')
 
 custom_package('hrdtools', 'packages/hrdtools')
 

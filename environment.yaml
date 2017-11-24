@@ -2,6 +2,7 @@ dependencies:
   - anaconda::gcc
   - anaconda::docopt
   - anaconda::svn
+  - anaconda::graphviz
   - r::r
   - conda-forge::jags
   - conda-forge::r-rtsne=0.13
@@ -12,13 +13,12 @@ dependencies:
   - bioconda::bioconductor-signer=1.2.2
   - bioconda::bioconductor-rbgl=1.54.0
   - bioconda::bioconductor-pcamethods=1.68.0
-  - bioconda::vcftools=0.1.15
+  - bioconda::vcftools
   - bioconda::r-docopt=0.4.5
-  - bioconda::r-matlab=1.0.2
   - bioconda::bioconductor-bsgenome.hsapiens.ucsc.hg19=1.4.0
   - r::r-essentials
-  - r::r-devtools
-  - r::r-roxygen2
+  - conda-forge::r-devtools=1.13.2
+  - conda-forge::r-roxygen2=6.0.1
   - r::r-stringr
   - r::r-rcpp=0.12.10
   - conda-forge::r-readr=1.1.0
@@ -29,4 +29,5 @@ dependencies:
   - conda-forge::r-ggplot2=2.2.0
   - r::r-tidyverse
   - r::r-doparallel
-  - r::r-rstan
+  - conda-forge::r-stanheaders=2.15.0
+  - conda-forge::r-rstan=2.15.1
