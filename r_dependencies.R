@@ -42,6 +42,8 @@ cran_package('cancerTiming')
 cran_package('rjags')
 cran_package('coda')
 cran_package('R.matlab')
+cran_package('GenSA')
+cran_package('rmutil')
 
 custom_package('hrdtools', 'packages/hrdtools')
 
