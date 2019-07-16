@@ -15,11 +15,11 @@ all: miniconda3/bin/conda \
 	r_packages \
 	miniconda3/envs/dependencies/etc/conda/activate.d/env_vars.sh
 
-Miniconda3-latest-Linux-x86_64.sh:
-	wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+Miniconda3-latest-MacOSX-x86_64.sh:
+	wget https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
 
-miniconda3/bin/conda: Miniconda3-latest-Linux-x86_64.sh
-	bash Miniconda3-latest-Linux-x86_64.sh -b -p $(makefile_dir)/miniconda3
+miniconda3/bin/conda: Miniconda3-latest-MacOSX-x86_64.sh
+	bash Miniconda3-latest-MacOSX-x86_64.sh -b -p $(makefile_dir)/miniconda3
 
 miniconda3/envs/dependencies: environment.yaml miniconda3/bin/conda
 	$(conda_path) env create --name dependencies --file $<
