@@ -14,13 +14,13 @@ dependencies:
   - bioconda::bioconductor-rbgl=1.54.0
   - bioconda::bioconductor-pcamethods=1.68.0
   - bioconda::vcftools
-  - bioconda::r-docopt=0.4.5
+  - conda-forge::r-docopt=0.4.5
   - bioconda::bioconductor-bsgenome.hsapiens.ucsc.hg19=1.4.0
   - r::r-essentials
   - conda-forge::r-devtools=1.13.2
   - conda-forge::r-roxygen2=6.0.1
   - r::r-stringr
-  - r::r-rcpp=0.12.10
+  - conda-forge::r-rcpp=0.12.10
   - conda-forge::r-readr=1.1.0
   - conda-forge::r-purrr=0.2.2
   - conda-forge::r-broom=0.4.2
