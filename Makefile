@@ -23,21 +23,25 @@ miniconda3/bin/conda: Miniconda3-latest-Linux-x86_64.sh
 	bash Miniconda3-latest-Linux-x86_64.sh -b -p $(makefile_dir)/miniconda3
 
 miniconda3/envs/dependencies: miniconda3/bin/conda
-	source scripts/install_environment.sh
-	export PATH=$(bin_dir):$$PATH && \
-	$(conda_path) create --name dependencies -y
+	$(conda_path) create --name dependencies -y && \
+	. miniconda3/etc/profile.d/conda.sh && \
+	conda activate dependencies && \
+	conda install -c bioconda docopt snakemake -y && \
+	conda install -c conda-forge r-docopt r-devtools r-roxygen2 r-cowplot r-stringr r-tidyverse r-doparallel -y
 
 conda_update: miniconda3/envs/dependencies
-	source env.sh && \
-		conda env update -f=$< && echo 'done' > conda_update
+	. miniconda3/etc/profile.d/conda.sh && \
+	conda activate dependencies && \
+	conda env update -f=$< && echo 'done' > conda_update
 
 r_packages: miniconda3/envs/dependencies
-	source env.sh && \
-		echo 'Installing R packages into this R install:' `which R` && \
-		export R_LIBS=$(r_libs) && \
-		export LD_LIBRARY_PATH=$(conda_libs) && \
-		$(rscript_path) scripts/r_dependencies.R && \
-		echo 'installed packages' > r_packages
+	. miniconda3/etc/profile.d/conda.sh && \
+	conda activate dependencies && \
+	echo 'Installing R packages into this R install:' `which R` && \
+	export R_LIBS=$(r_libs) && \
+	export LD_LIBRARY_PATH=$(conda_libs) && \
+	$(rscript_path) scripts/r_dependencies.R && \
+	echo 'installed packages' > r_packages
 
 miniconda3/envs/dependencies/etc/conda/activate.d/env_vars.sh: miniconda3/envs/dependencies
 	mkdir -p miniconda3/envs/dependencies/etc/conda/activate.d && echo "export R_LIBS=$(r_libs)" > $@
