@@ -30,20 +30,4 @@ custom_package <- function(pkgname, pkgpath) {
     }
 }
 
-bioc_package('copynumber')
-bioc_package('signeR')
-
-cran_package('nnls')
-cran_package('dbscan')
-cran_package('cowplot')
-cran_package('deconstructSigs')
-cran_package('mutSignatures')
-cran_package('cancerTiming')
-cran_package('rjags')
-cran_package('coda')
-cran_package('R.matlab')
-cran_package('GenSA')
-cran_package('rmutil')
-
-custom_package('hrdtools', 'packages/hrdtools')
 
