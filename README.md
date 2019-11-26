@@ -6,6 +6,7 @@ Most of my packages developed for biological data analyses rely on many dependen
 
 ```{bash}
 git clone https://github.com/eyzhao/bio-pipeline-dependencies.git
+cd bio-pipeline-dependencies
 make
 source miniconda3/bin/activate dependencies
 ```
