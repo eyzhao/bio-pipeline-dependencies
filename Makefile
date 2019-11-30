@@ -27,7 +27,10 @@ miniconda3/envs/dependencies: miniconda3/bin/conda
 	. miniconda3/etc/profile.d/conda.sh && \
 	conda activate dependencies && \
 	conda install -c bioconda docopt snakemake -y && \
-	conda install -c conda-forge r-docopt r-devtools r-roxygen2 r-cowplot r-stringr r-tidyverse r-doparallel -y
+	conda install -c conda-forge r-docopt r-devtools r-roxygen2 r-cowplot r-stringr r-tidyverse r-doparallel -y && \
+	conda install -y -c r r-mass r-rcpp r-doparallel r-foreach r-igraph r-stan && \
+	conda install -y -c conda-forge r-igraph r-loo r-nnls r-rmutil r-purrr && \
+	conda install -y -c bioconda bioconductor-bsgenome
 
 conda_update: miniconda3/envs/dependencies
 	. miniconda3/etc/profile.d/conda.sh && \
