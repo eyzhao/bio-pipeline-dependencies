@@ -23,7 +23,7 @@ miniconda2/bin/conda: Miniconda2-latest-Linux-x86_64.sh
 	bash Miniconda2-latest-Linux-x86_64.sh -b -p $(makefile_dir)/miniconda2
 
 miniconda2/envs/dependencies: miniconda2/bin/conda
-	$(conda_path) create --name dependencies -y && \
+	$(conda_path) create --name dependencies python=2.7 -y && \
 	. miniconda2/etc/profile.d/conda.sh && \
 	conda activate dependencies && \
 	conda install -c bioconda docopt snakemake -y && \
